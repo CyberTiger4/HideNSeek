@@ -140,3 +140,60 @@ seeker-blind-time: 60       # Secondi di cecità e immobilità iniziale per i se
 <li>Limitare il numero di seeker a 1–3 per partite grandi.</li>
 <li>Considerare effetti extra per suspense (suoni, particelle, ecc.).</li>
 </ul>
+
+<hr>
+
+<div style="text-align: center;">
+<h1 style="font-size:48px;">HideNSeek Quick Start</h1>
+</div>
+<h2>Passaggi rapidi</h2>
+<ol>
+<li>Mettere il <code>.jar</code> nella cartella <code>plugins</code> del server.</li>
+<li>Avviare il server per generare il <code>config.yml</code>.</li>
+<li>Setta la lobby di attesa con:
+  <pre><code>/hssetlobby [x y z yaw pitch]</code></pre>
+  (Se non fornite, prende la posizione attuale del giocatore)
+</li>
+<li>Avvia la partita con:
+  <pre><code>/hsstart [seeker1 seeker2 ...]</code></pre>
+  (Se non specificati, i seeker saranno scelti casualmente)
+</li>
+</ol>
+
+<h2>Comandi principali</h2>
+<table>
+<thead>
+<tr><th>Comando</th><th>Funzione</th><th>Permessi</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/hssetlobby [x y z yaw pitch]</code></td><td>Setta la lobby di attesa</td><td>OP</td></tr>
+<tr><td><code>/hsstart [seeker1 seeker2 ...]</code></td><td>Avvia la partita (countdown + teletrasporto)</td><td>OP</td></tr>
+</tbody>
+</table>
+
+<h2>Configurazione rapida (<code>config.yml</code>)</h2>
+<pre><code>seeker-time: 120           # durata partita in secondi
+min-players: 4             # minimo giocatori per avviare il countdown
+pre-start-chat: true        # countdown in chat
+pre-start-time: 15          # countdown iniziale in secondi
+
+lobby:
+  world: world
+  x: 0.0
+  y: 64.0
+  z: 0.0
+  yaw: 0.0
+  pitch: 0.0
+  radius: 20.0             # raggio lobby, evita spawn vicino
+
+seeker-blind-time: 60       # secondi di cecità e immobilità dei seeker all'inizio
+</code></pre>
+
+<h2>Meccaniche essenziali</h2>
+<ul>
+<li>Hider teletrasportati random fuori dal raggio della lobby.</li>
+<li>Seeker teletrasportati nella lobby, ciechi e immobilizzati per <code>seeker-blind-time</code>.</li>
+<li>1 colpo con <strong>Seeker Stick</strong> → hider morto, diventa spettatore.</li>
+<li>Messaggi chiari per vittoria e fine partita.</li>
+<li>Countdown visivo in title e chat per aumentare suspense.</li>
+</ul>
