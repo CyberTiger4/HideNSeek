@@ -1,0 +1,15 @@
+name: HideNSeek
+version: '1.0'
+main: it.cybertiger.hidenseek.HideAndSeek
+api-version: '1.21'
+authors: [ CyberTiger ]
+description: Want to play hide and seek in your server?
+website: cybertiger.is-a.dev
+
+commands:
+  hsstart:
+    description: Avvia una partita di Hide&Seek
+    usage: /hsstart [seeker1 seeker2 ...]
+  hssetlobby:
+    description: Setta la lobby di attesa
+    usage: /hssetlobby [x y z yaw pitch]
